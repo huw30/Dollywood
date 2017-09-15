@@ -15,9 +15,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
 
     var movies: [[String: Any]] = [[String: Any]]()
+    var alertView: AlertViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        clearErrorMessage()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
@@ -88,11 +90,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     func handleError(error: Error) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let errorAlert = storyboard.instantiateViewController(withIdentifier: "alert") as! AlertViewController
-        errorAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        errorAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        self.present(errorAlert, animated: true, completion: nil)
-        errorAlert.errorMessage.text = error.localizedDescription
+        alertView = storyboard.instantiateViewController(withIdentifier: "alert") as! AlertViewController
+        alertView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        alertView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(alertView, animated: true, completion: nil)
+        alertView.errorMessage.text = error.localizedDescription
+    }
+    func clearErrorMessage() {
+        if let alertView = alertView {
+            alertView.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
