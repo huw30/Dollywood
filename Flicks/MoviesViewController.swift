@@ -87,7 +87,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func handleError(error: Error) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let errorAlert = storyboard.instantiateViewController(withIdentifier: "alert") as! AlertViewController
+        errorAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        errorAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(errorAlert, animated: true, completion: nil)
+        errorAlert.errorMessage.text = error.localizedDescription
     }
 }
 
