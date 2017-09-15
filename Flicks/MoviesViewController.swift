@@ -16,6 +16,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     var movies: [[String: Any]] = [[String: Any]]()
     var alertView: AlertViewController!
+    var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
+
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+
         fetchMovies()
     }
 
@@ -50,6 +56,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
         return cell
     }
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        fetchMovies()
+    }
 
     func fetchMovies() {
         let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")
@@ -72,8 +81,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     let dictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
 
                     self.movies = dictionary["results"] as! [[String: Any]]
+
                     self.tableView.reloadData()
                     MBProgressHUD.hide(for: self.view, animated: true)
+                    self.refreshControl.endRefreshing()
                 }
             }
         });
