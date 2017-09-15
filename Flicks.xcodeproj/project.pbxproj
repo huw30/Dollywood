@@ -119,7 +119,6 @@
 				B70A39721F68E74900334BA5 /* Assets.xcassets */,
 				B70A39741F68E74900334BA5 /* LaunchScreen.storyboard */,
 				B70A39771F68E74900334BA5 /* Info.plist */,
-				B70A398B1F690A7300334BA5 /* MovieCell.swift */,
 			);
 			path = Flicks;
 			sourceTree = "<group>";
@@ -136,6 +135,7 @@
 		B7E7DD4C1F6A5D7F00AE4D17 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B70A398B1F690A7300334BA5 /* MovieCell.swift */,
 				B70A396D1F68E74900334BA5 /* MoviesViewController.swift */,
 				B7E7DD4D1F6A5DD900AE4D17 /* MovieDetailsViewController.swift */,
 			);
@@ -255,10 +255,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Flicks/Pods-Flicks-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

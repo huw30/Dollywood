@@ -9,7 +9,9 @@
 import UIKit
 
 class MovieCell: UITableViewCell {
-
+    
+    var movie: [String: Any]!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var posterView: UIImageView!
