@@ -93,8 +93,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func fetchMovies() {
-        let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")
-        var request = URLRequest(url: url!)
+        let tabBarIndex = self.tabBarController?.selectedIndex
+        let url: URL!
+
+        if (tabBarIndex == 0) {
+            url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")
+        } else {
+            url = URL(string:"https://api.themoviedb.org/3/movie/top_rated?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")
+        }
+
+        var request = URLRequest(url: url)
         request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         let session = URLSession(
             configuration: URLSessionConfiguration.default,
