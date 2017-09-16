@@ -21,9 +21,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="ttl-5h-4Hi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="138" id="H5d-tM-8d0" customClass="MovieCell" customModule="Flicks" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="138"/>
+                                        <rect key="frame" x="0.0" y="72" width="375" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H5d-tM-8d0" id="dgg-Oz-FYb">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="137.5"/>
@@ -66,6 +71,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0rH-B1-0sq"/>
                     <connections>
+                        <outlet property="movieSearchBar" destination="ttl-5h-4Hi" id="fV2-9t-m2o"/>
                         <outlet property="tableView" destination="7xP-XK-Zb4" id="hZw-ns-UbR"/>
                     </connections>
                 </viewController>
