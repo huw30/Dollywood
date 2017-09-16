@@ -45,6 +45,7 @@ class MovieDetailsViewController: UIViewController {
         posterView.image = posterImage
         movieTitle.text = title
         movieOverview.text = synopsis
+        self.title = title
     }
 
 }

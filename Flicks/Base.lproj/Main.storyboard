@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies View Controller-->
+        <!--Now Playing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MoviesViewController" customModule="Flicks" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,7 +69,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0rH-B1-0sq"/>
+                    <navigationItem key="navigationItem" title="Now Playing" id="0rH-B1-0sq"/>
                     <connections>
                         <outlet property="movieSearchBar" destination="ttl-5h-4Hi" id="fV2-9t-m2o"/>
                         <outlet property="tableView" destination="7xP-XK-Zb4" id="hZw-ns-UbR"/>
@@ -242,7 +242,7 @@
             </objects>
             <point key="canvasLocation" x="108" y="155"/>
         </scene>
-        <!--Movies View Controller-->
+        <!--Top Rated-->
         <scene sceneID="mCf-Kk-Q0F">
             <objects>
                 <viewController id="K0H-Xc-SL8" customClass="MoviesViewController" customModule="Flicks" customModuleProvider="target" sceneMemberID="viewController">
@@ -302,7 +302,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bcz-Gh-Gqr"/>
+                    <navigationItem key="navigationItem" title="Top Rated" id="bcz-Gh-Gqr"/>
                     <connections>
                         <outlet property="movieSearchBar" destination="Ufn-wy-nox" id="qxT-JH-l6j"/>
                         <outlet property="tableView" destination="jvN-Vg-zro" id="Tp2-VM-FRg"/>
@@ -338,6 +338,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rPZ-Qe-4hv"/>
+        <segue reference="pn5-bf-HSA"/>
     </inferredMetricsTieBreakers>
 </document>
