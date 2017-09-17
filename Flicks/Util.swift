@@ -37,4 +37,7 @@ struct Util {
             failure: { (request, response, error) -> Void in
         })
     }
+    static func minsToHoursMinutes (mins : Int) -> (Int, Int) {
+        return (mins / 60, (mins % 60))
+    }
 }

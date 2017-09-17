@@ -16,7 +16,7 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var posterView: UIImageView!
 
-    @IBOutlet weak var scoreLable: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var releaseDateLable: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,11 +45,11 @@ class MovieCell: UITableViewCell {
         self.backgroundColor = UIColor.clear
 
         if score != nil {
-            self.scoreLable.text = String(format:"%.1f", score!)
+            self.scoreLabel.text = String(format:"%.1f", score!)
         }
 
-        self.scoreLable.layer.masksToBounds = true
-        self.scoreLable.layer.cornerRadius = 5
+        self.scoreLabel.layer.masksToBounds = true
+        self.scoreLabel.layer.cornerRadius = 5
         
         if releaseDate != nil {
             self.releaseDateLable.text = releaseDate
