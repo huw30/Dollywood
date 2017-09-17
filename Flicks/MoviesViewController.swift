@@ -58,8 +58,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
         cell.initCell(with: movie)
 
-        cell.selectionStyle = .none
-
         return cell
     }
 
@@ -69,7 +67,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         if (searchActive && filtered.count == 0) {
             let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             noDataLabel.text          = "No result found"
-            noDataLabel.textColor     = UIColor.black
+            noDataLabel.textColor     = UIColor.white
             noDataLabel.textAlignment = .center
             tableView.backgroundView  = noDataLabel
             tableView.separatorStyle  = .none

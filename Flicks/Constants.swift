@@ -18,6 +18,7 @@ struct Constants {
     struct Colors {
         static let bgColor = UIColor(red: 43/255, green: 47/255, blue: 39/255, alpha: 1.0)
         static let lightGrey = UIColor(red: 220/255, green: 223/255, blue: 216/255, alpha: 1.0) /* #dcdfd8 */
+        static let darkGrey = UIColor(red: 112/255, green: 108/255, blue: 97/255, alpha: 1.0) /* #706c61 */
         static let orange = UIColor(red: 255/255, green: 179/255, blue: 15/255, alpha: 1.0) /* #ffb30f */
     }
     

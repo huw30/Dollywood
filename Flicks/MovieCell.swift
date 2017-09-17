@@ -56,6 +56,10 @@ class MovieCell: UITableViewCell {
         }
 
         self.synopsisLabel.sizeToFit()
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = Constants.Colors.darkGrey
+        self.selectedBackgroundView = backgroundView
     }
 
 }
