@@ -25,6 +25,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         clearErrorMessage()
+        setStyle()
+        
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
@@ -54,19 +56,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             movie = movies[indexPath.row]
         }
 
-        let title = movie["title"] as? String
-        let synopsis = movie["overview"] as? String
-        var posterURL: URL!
+        cell.initCell(with: movie)
 
-        if let path = movie["poster_path"] as? String {
-            let baseURL = "http://image.tmdb.org/t/p/w500"
-            posterURL = URL(string: baseURL + path)
-        }
-
-        cell.titleLabel.text = title
-        cell.synopsisLabel.text = synopsis
-        cell.posterView.setImageWith(posterURL)
-        cell.movie = movie
+        cell.selectionStyle = .none
 
         return cell
     }
@@ -178,13 +170,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             alertView.dismiss(animated: true, completion: nil)
         }
     }
-    func showNoResult() {
-        let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-        noDataLabel.text          = "No result"
-        noDataLabel.textColor     = UIColor.black
-        noDataLabel.textAlignment = .center
-        tableView.backgroundView  = noDataLabel
-        tableView.separatorStyle  = .none
+    func setStyle() {
+        // Styling nav bar
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.barTintColor = Constants.Colors.bgColor
+            navigationBar.tintColor = Constants.Colors.lightGrey
+            navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.Colors.orange]
+        }
+
+        self.tableView.backgroundColor = Constants.Colors.bgColor
     }
 }
 
