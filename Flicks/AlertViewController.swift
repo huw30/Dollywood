@@ -14,9 +14,14 @@ class AlertViewController: UIViewController {
     @IBOutlet weak var errorMessage: UILabel!
 
     @IBAction func dissmissMessage(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        removeSelf()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    func removeSelf() {
+        self.willMove(toParentViewController: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParentViewController()
     }
 }

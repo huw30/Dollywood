@@ -39,12 +39,10 @@ class MovieDetailsViewController: UIViewController {
     }
     
     func setComponentInfo() {
-        var backDropURL: URL!
-        
         if let backDrop = movie["backdrop_path"] as? String {
-            let baseURL = "http://image.tmdb.org/t/p/w500"
-            backDropURL = URL(string: baseURL + backDrop)
-            backDropView.setImageWith(backDropURL)
+            let lowResURL = URL(string: Constants.URLs.smallPosterBaseUrl + backDrop)
+            let highResURL = URL(string: Constants.URLs.originalPosterBaseUrl + backDrop)
+            Util.loadImageFromLowToHigh(imgView: self.backDropView, lowResURL: lowResURL!, highResURL: highResURL!)
         } else {
             backDropView.image = posterImage
         }
@@ -91,11 +89,15 @@ class MovieDetailsViewController: UIViewController {
         )
 
         let task : URLSessionDataTask = session.dataTask(with: request, completionHandler: { (dataOrNil, response, error) in
-            if let data = dataOrNil {
-                let movie = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                self.movieDetails = movie
-                MBProgressHUD.hide(for: self.view, animated: true)
-                self.setComponentInfo()
+            if let error = error {
+                Util.handleError(error: error, controller: self)
+            } else{
+                if let data = dataOrNil {
+                    let movie = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                    self.movieDetails = movie
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    self.setComponentInfo()
+                }
             }
         })
         task.resume()
@@ -122,7 +124,7 @@ class MovieDetailsViewController: UIViewController {
     func getRuntime() -> String {
         if let runtime = movieDetails["runtime"] {
             let (h,m) = Util.minsToHoursMinutes(mins: runtime as! Int)
-            return "\(h) h, \(m) mins"
+            return "\(h)h \(m)mins"
         }
         return ""
     }

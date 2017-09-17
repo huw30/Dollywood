@@ -10,6 +10,18 @@ import Foundation
 import UIKit
 
 struct Util {
+    static func handleError(error: Error, controller: UIViewController) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let alertView = storyboard.instantiateViewController(withIdentifier: "alert") as! AlertViewController
+        alertView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        alertView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+
+        controller.addChildViewController(alertView)
+        controller.view.addSubview(alertView.view)
+        alertView.didMove(toParentViewController: controller)
+
+        alertView.errorMessage.text = error.localizedDescription
+    }
     static func loadImageFromLowToHigh(imgView: UIImageView, lowResURL: URL, highResURL: URL) {
         let smallImageRequest = URLRequest(url: lowResURL)
         let largeImageRequest = URLRequest(url: highResURL)

@@ -107,7 +107,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let task : URLSessionDataTask = session.dataTask(with: request, completionHandler: { (dataOrNil, response, error) in
 
             if let error = error {
-                self.handleError(error: error)
+                Util.handleError(error: error, controller: self)
             } else {
                 if let data = dataOrNil {
                     let dictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
@@ -157,17 +157,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         destination.posterImage = currentCell.posterView.image
     }
 
-    func handleError(error: Error) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        alertView = storyboard.instantiateViewController(withIdentifier: "alert") as! AlertViewController
-        alertView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        alertView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        self.present(alertView, animated: true, completion: nil)
-        alertView.errorMessage.text = error.localizedDescription
-    }
     func clearErrorMessage() {
         if let alertView = alertView {
-            alertView.dismiss(animated: true, completion: nil)
+            alertView.dissmissMessage(self)
         }
     }
     func setStyle() {
