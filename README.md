@@ -21,26 +21,28 @@ The following **optional** features are implemented:
 - [x] Add a search bar.
 - [x] All images fade in.
 - [x] For the large poster, load the low-res image first, switch to high-res when complete.
-- [ ] Customize the highlight and selection effect of the cell.
+- [x] Customize the highlight and selection effect of the cell.
 - [x] Customize the navigation bar.
 
 The following **additional** features are implemented:
 
-- [ ] Makes another call the the api to get each movie's details including genres, runtime, and tagline etc.
+- [x] Makes another call the the api to get each movie's details including genres, runtime, and tagline etc.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](https://user-images.githubusercontent.com/5446130/30525441-6d69d202-9bbb-11e7-8f4a-4529e06513b7.gif)
+![Video Walkthrough](https://user-images.githubusercontent.com/5446130/30525548-68807730-9bbd-11e7-839e-0a2921879b20.gif)
 
-![Link](http://i.imgur.com/BqddVib.gif)
+![Link](https://i.imgur.com/T17Dp22.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
-
-TBA
+Difficulties encountered:
+- Reused the movie list view controller for both tab bar item view
+- Had difficulties figuring out the best practice for code structure
+- Added an AlertViewUIController, and show it as a subview to the UIController's view if we encounter any errors during network requests.
 
 ## License
 
