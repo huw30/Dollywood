@@ -244,7 +244,7 @@
         <scene sceneID="Ubx-hf-m4i">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Blb-Ga-72k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Now Playing" id="pHD-KC-hzY"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing" id="pHD-KC-hzY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jWr-Jf-K6C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -350,7 +350,7 @@
         <scene sceneID="kwI-rz-On0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UKX-ZK-K61" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Rated" id="SvN-O1-29x"/>
+                    <tabBarItem key="tabBarItem" title="Top Rated" image="top_rated" id="SvN-O1-29x"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R1i-qJ-0iT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -366,6 +366,10 @@
             <point key="canvasLocation" x="107.5" y="-579.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="now_playing" width="32" height="32"/>
+        <image name="top_rated" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -374,4 +378,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="pn5-bf-HSA"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
