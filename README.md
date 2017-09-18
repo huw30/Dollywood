@@ -2,7 +2,7 @@
 
 Dollywood is a movies review app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **20** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
